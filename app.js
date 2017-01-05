@@ -51,7 +51,9 @@ app.get('/posts/new', function(req,res){
   res.render("posts/new");
 });
 // create
-app.post('/posts', function(req, res){
+app.post('/insert', function(req, res){
+  console.log(req.body);
+  console.log(req.body.post);
   Post.create(req.body.post, function(err, post){
     if(err) return res.json({success:false, message:err});
     //res.json({success:true, data:post});
